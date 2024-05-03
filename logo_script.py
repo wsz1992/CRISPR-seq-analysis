@@ -21,6 +21,15 @@ from functools import partial
 from multiprocessing import Pool
 from . import cmdutil
 import argparse
+import logging
+from lib import commands
+
+
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, format='%(message)s')
+    args = commands.parse_args()
+    args.func(args)
+
 parser = argparse.ArgumentParser(description='Analysis pipeline.')
 subparser = parser.add_subparsers(
     help='Sub-commands (use with -h for more info)')
